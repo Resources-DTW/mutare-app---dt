@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/fab1f8bdcb.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #dcf0ec;
+      "
+    >
+      <div
+        style="
+          background-color: #ffffff;
+          margin-top: 5%;
+          margin-bottom: 5%;
+          width: 70%;
+          font-family: 'Poppins';
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        "
+      >
+        <img
+          src="https://images.contentstack.io/v3/assets/blt6f0f282d20bbe00b/blt58e0bed74aba1c39/65dcad6b6e7edbf719b4ec54/WhatsApp_Image_2024-02-08_at_17.16.53.jpeg"
+          style="object-fit: cover; padding-top: 20px"
+          alt="logo"
+          width="150px"
+        />
+        <hr style="height: 1px; border: none; background-color: #3ac1cb" />
+        <div style="padding-left: 30px">
+          <p
+            style="
+              font-size: 18px;
+              font-weight: 400;
+              line-height: 36px;
+              opacity: 80%;
+            "
+          >
+            Dear John,
+          </p>
+          <p
+            style="
+              font-size: 18px;
+              font-weight: 400;
+              line-height: 36px;
+              width: 70%;
+              opacity: 80%;
+            "
+          >
+            Lorem ipsum dolor sit amet consectetur. A pulvinar amet condimentum
+            posuere vulputate non.
+          </p>
+
+          <div
+            style="display: flex; align-items: center; justify-content: center"
+          >
+            <div style="background-color: #eef0f8; padding: 3px 20px">
+              <p
+                id="textToCopy"
+                style="font-size: 16px; font-weight: 400; opacity: 40%"
+              >
+                <i class="fa-solid fa-lock"></i>
+                <span id="userIdPlaceholder"></span>
+              </p>
+            </div>
+
+            <button
+              onclick="copyToClipboard()"
+              style="
+                font-size: 16px;
+                font-weight: 500;
+                color: #ffffff;
+                border: none;
+                background-color: #3ac1cb;
+                padding: 20px;
+                cursor: pointer;
+              "
+            >
+              <i class="fa-regular fa-copy"></i> Copy
+            </button>
+          </div>
+          <div
+            id="popup"
+            style="
+              display: none;
+              position: fixed;
+              top: 60%;
+              left: 61%;
+              background-color: #0c0c0c;
+              color: #ffffff;
+              padding: 10px;
+              border-radius: 5px;
+            "
+          >
+            copied
+          </div>
+
+          <p
+            style="
+              font-size: 20px;
+              font-weight: 600;
+              line-height: 36px;
+              opacity: 80%;
+              font-family: 'Poppins';
+            "
+          >
+            Step 1:
+          </p>
+          <p
+            style="
+              font-size: 18px;
+              font-weight: 400;
+              line-height: 36px;
+              opacity: 80%;
+            "
+          >
+            Lorem ipsum dolor sit amet consectetur.
+          </p>
+          <p
+            style="
+              font-size: 20px;
+              font-weight: 600;
+              line-height: 36px;
+              opacity: 80%;
+            "
+          >
+            Step 2:
+          </p>
+          <p
+            style="
+              font-size: 18px;
+              font-weight: 400;
+              line-height: 36px;
+              opacity: 80%;
+            "
+          >
+            Lorem ipsum dolor sit amet consectetur.
+          </p>
+          <p
+            style="
+              font-size: 20px;
+              font-weight: 600;
+              line-height: 36px;
+              opacity: 80%;
+            "
+          >
+            Step 3:
+          </p>
+          <p
+            style="
+              font-size: 18px;
+              font-weight: 400;
+              line-height: 36px;
+              opacity: 80%;
+            "
+          >
+            Lorem ipsum dolor sit amet consectetur.
+          </p>
+          <p
+            style="
+              font-size: 15px;
+              font-weight: 400;
+              opacity: 60%;
+              text-align: center;
+              line-height: 22.5px;
+            "
+          >
+            This email was sent from Lorem ipsum.
+          </p>
+          <p
+            style="
+              font-size: 15px;
+              font-weight: 400;
+              opacity: 60%;
+              text-align: center;
+              line-height: 22.5px;
+            "
+          >
+            &#169; 2024 CHEM AID. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      function copyToClipboard() {
+        const textToCopy = document.getElementById("textToCopy").innerText;
+
+        const textarea = document.createElement("textarea");
+        textarea.value = textToCopy;
+        document.body.appendChild(textarea);
+
+        textarea.select();
+        textarea.setSelectionRange(0, 99999);
+
+        document.execCommand("copy");
+
+        document.body.removeChild(textarea);
+
+        const popup = document.getElementById("popup");
+        popup.style.display = "block";
+
+        const userId = localStorage.getItem("userId");
+        document.getElementById("userIdPlaceholder").innerText = userId;
+
+        setTimeout(function () {
+          popup.style.display = "none";
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
